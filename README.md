@@ -5,8 +5,8 @@ An instructor's command center for in-person presentation sessions.
 - Randomly draws the next team, without repeats
 - Shows the current team's name, project, and members
 - Add or remove teams at any time (members are optional)
-- Presentation timer (default 7 min) with a 2-minute warning, then a separate
-  Q&A countdown (default 3 min). Both lengths can be changed in the app
+- Presentation timer with a 2-minute warning, then a separate
+  Q&A countdown. Both durations are adjustable
 - Drag the timer bar to add or remove time
 - Optional chime at the 2-minute warning and when time is up
 
@@ -19,13 +19,13 @@ The two only talk over HTTP (`/api/...`), so each can be deployed separately.
 
 ## Run locally
 
-Requires Python 3.10+ and Node.js 20.19+ (or 22.12+).
+Requires **Python 3.10+** and **Node.js 20.19+**
 
 Backend (terminal 1):
 
 ```bash
 cd backend
-python3 -m venv .venv
+python3 -m venv .venv          # make sure your python is >= 3.10
 source .venv/bin/activate      # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 uvicorn main:app --reload
@@ -40,7 +40,7 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:5173.
+Open `http://localhost:5173` (just open where frontend is hosted)
 
 ## Configuration
 
@@ -68,11 +68,4 @@ editing it by hand.
 
 Interactive docs: http://localhost:8000/docs
 
-## Moving to the cloud
-
-- Frontend: set `VITE_API_URL` to the deployed backend URL.
-- Backend: set `ALLOWED_ORIGINS` to the deployed frontend URL.
-- Teams are saved to a JSON file and the presented list is kept in memory
-  (`backend/store.py`). Cloud servers don't keep local files, so replace
-  `SessionStore` with a database-backed version with the same methods;
-  `main.py` doesn't need to change.
+## Moving to the cloud: TODO
