@@ -1,0 +1,46 @@
+{
+  "settings": {
+    "title": "Final project presentations",
+    "presentationMinutes": 10,
+    "warningMinutes": 2,
+    "qaMinutes": 5
+  },
+  "teams": [
+    {
+      "id": "t1",
+      "name": "Byte Club",
+      "project": "Campus study room finder",
+      "members": ["Aisha Khan", "Marco Rossi", "Jenny Liu", "Sam Patel"]
+    },
+    {
+      "id": "t2",
+      "name": "Null Pointers",
+      "project": "Group expense splitter",
+      "members": ["Daniel Kim", "Priya Nair", "Leo Martin"]
+    },
+    {
+      "id": "t3",
+      "name": "Stack Overflowers",
+      "project": "TTC delay tracker",
+      "members": ["Emma Wilson", "Omar Haddad", "Grace Chen", "Noah Brown"]
+    },
+    {
+      "id": "t4",
+      "name": "Merge Conflict",
+      "project": "Course review aggregator",
+      "members": ["Yuki Tanaka", "Carlos Mendes", "Hannah Lee"]
+    },
+    {
+      "id": "t5",
+      "name": "The Recursors",
+      "project": "Club event calendar",
+      "members": ["Fatima Ali", "Ben Cohen", "Mia Zhang", "Ethan Wong"]
+    },
+    {
+      "id": "t6",
+      "name": "404 Found",
+      "project": "Lost and found board",
+      "members": ["Lucas Silva", "Chloe Dubois", "Ravi Sharma"]
+    }
+  ]
+}

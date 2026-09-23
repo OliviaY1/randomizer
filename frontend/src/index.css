@@ -1,0 +1,49 @@
+:root {
+  /* Chalkboard palette */
+  --board: #22362d;
+  --board-deep: #1a2b23;
+  --board-line: #3b5347;
+  --chalk: #eef0e8;
+  --chalk-dim: #a8b8ad;
+  --chalk-yellow: #f3c04f;
+  --chalk-blue: #8fc8ea;
+  --chalk-red: #f09a8a;
+
+  --font-body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --font-clock: "Barlow Condensed", "Arial Narrow", "Helvetica Neue", sans-serif;
+
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--chalk);
+  background: var(--board);
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--board);
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+ol {
+  margin: 0;
+}
+
+button {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--chalk-blue);
+  outline-offset: 3px;
+}
