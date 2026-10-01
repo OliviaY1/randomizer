@@ -6,30 +6,27 @@ export const API_URL = import.meta.env.VITE_API_URL ?? "http://localhost:8000";
 // errors, { detail: [{ msg: "..." }, ...] }. Turn either into one string.
 function errorMessage(body, status) {
   if (typeof body.detail === "string") return body.detail;
-  if (Array.isArray(body.detail)) {
-    return body.detail.map((e) => e.msg.replace(/^Value error, /, "")).join(" ");
-  }
+  if (Array.isArray(body.detail)) return body.detail.map((e) => e.msg).join(" ");
   return `Request failed with status ${status}`;
 }
 
-async function request(path, options = {}) {
-  const response = await fetch(`${API_URL}${path}`, {
-    ...options,
-    headers: { "Content-Type": "application/json", ...options.headers },
-  });
+async function request(path, token, options = {}) {
+  let response;
+  try {
+    response = await fetch(`${API_URL}${path}`, {
+      ...options,
+      headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}`, ...options.headers },
+    });
+  } catch {
+    throw new Error(`Can't reach the server at ${API_URL}.`);
+  }
   const body = await response.json().catch(() => ({}));
   if (!response.ok) throw new Error(errorMessage(body, response.status));
   return body;
 }
 
-export const getSession = () => request("/api/session");
-export const drawNextTeam = () => request("/api/next", { method: "POST" });
-export const resetSession = () => request("/api/reset", { method: "POST" });
+// The signed-in user's saved setup, or null if they have none yet
+export const fetchSavedSetup = (token) => request("/api/me/setup", token).then((body) => body.setup ?? null);
 
-export const createTeam = (team) =>
-  request("/api/teams", { method: "POST", body: JSON.stringify(team) });
-
-export const deleteTeam = (id) => request(`/api/teams/${id}`, { method: "DELETE" });
-
-export const updateSettings = (settings) =>
-  request("/api/settings", { method: "PUT", body: JSON.stringify(settings) });
+export const saveSetup = (token, setup) =>
+  request("/api/me/setup", token, { method: "PUT", body: JSON.stringify(setup) });
