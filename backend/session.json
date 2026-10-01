@@ -1,0 +1,31 @@
+{
+  "settings": {
+    "title": "Final project presentations",
+    "presentationMinutes": 7,
+    "qaMinutes": 3,
+    "warningMinutes": 2,
+    "chime": true
+  },
+  "teams": [
+    {
+      "id": "t4",
+      "name": "Merge Conflict",
+      "project": "Course review aggregator",
+      "members": [
+        "Yuki Tanaka",
+        "Carlos Mendes",
+        "Hannah Lee"
+      ]
+    },
+    {
+      "id": "76ae1e32",
+      "name": "catalyst",
+      "project": "",
+      "members": [
+        "Olivia Yan",
+        "Luke Zhang",
+        "David Zhao"
+      ]
+    }
+  ]
+}
