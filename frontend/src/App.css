@@ -23,15 +23,11 @@
 .topbar {
   grid-area: topbar;
   display: flex;
-  align-items: flex-start;
+  align-items: baseline;
   justify-content: space-between;
-  gap: 1rem 2rem;
+  gap: 1rem;
   padding-bottom: 1rem;
   border-bottom: 2px solid var(--board-line);
-}
-
-.topbar__title {
-  min-width: 0;
 }
 
 .topbar h1 {
@@ -549,78 +545,6 @@
   gap: 0.5rem;
 }
 
-/* Sign-in bar */
-.auth {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.35rem;
-  max-width: 28rem;
-}
-
-.auth__row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 0.25rem 0.75rem;
-}
-
-.auth__user {
-  font-weight: 700;
-  max-width: 14rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.auth__save,
-.auth__muted {
-  font-size: 0.9rem;
-  color: var(--chalk-dim);
-}
-
-.auth__save--error,
-.auth__error {
-  color: var(--chalk-red);
-}
-
-.auth__error {
-  font-size: 0.9rem;
-  text-align: right;
-}
-
-.btn--ms {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-}
-
-/* Brief message at the bottom of the screen */
-.notice {
-  position: fixed;
-  left: 50%;
-  bottom: 1.5rem;
-  z-index: 10;
-  width: max-content;
-  max-width: calc(100% - 2rem);
-  transform: translateX(-50%);
-  padding: 0.85rem 1.25rem;
-  border: 1.5px solid var(--chalk-blue);
-  border-radius: 12px;
-  background: var(--board-deep);
-  color: var(--chalk);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-  animation: notice-in 250ms ease-out;
-}
-
-@keyframes notice-in {
-  from {
-    opacity: 0;
-    transform: translate(-50%, 0.75rem);
-  }
-}
-
 /* Smaller screens */
 @media (max-width: 900px) {
   .app {
@@ -634,11 +558,7 @@
 
   .topbar {
     flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .auth {
-    align-items: flex-start;
+    gap: 0.25rem;
   }
 
   .timer {
@@ -647,7 +567,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .notice,
   .current__name,
   .timer--warning .timer__clock {
     animation: none;
